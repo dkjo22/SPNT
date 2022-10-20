@@ -34,6 +34,10 @@ public class CharacterScript : MonoBehaviour
         float x = Input.GetAxis("Horizontal");
         Vector3 movement = (playerTransform.right * x) + (playerTransform.forward * 1);
         controller.Move(movement * (forwardRunSpeed * Time.deltaTime));
+        // Joystick Ground Movement
+        float xJ = Input.GetAxis("LeftJoystick Horizontal");
+        Vector3 movementJ = (playerTransform.right * xJ) + (playerTransform.forward * 1);
+        controller.Move(movementJ * (forwardRunSpeed * Time.deltaTime));
 
         // Jumping
         if (Input.GetButton("Jump") && grounded)
